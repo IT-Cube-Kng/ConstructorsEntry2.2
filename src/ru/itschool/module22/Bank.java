@@ -2,9 +2,16 @@ package ru.itschool.module22;
 
 import bank.client.Client;
 
+import java.sql.SQLOutput;
+
 public class Bank {
     long money;
-    int ids[] = new int[5];
+    static int ids[];
+
+    static {
+        ids = new int[]{42, 24, 222, 333};
+    }
+
 
 
     public Bank(int money) {
@@ -13,10 +20,15 @@ public class Bank {
 
     public String getBalance(Client c) {
         for (int id : ids) {
-            if (id == c.id) return String.valueOf(money);
+            if (id == c.getId(this)) return String.valueOf(money);
         }
         return "";
     }
 
 
+
+
+
 }
+
+
